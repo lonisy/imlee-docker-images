@@ -27,7 +27,7 @@ $http->on("request", function($request, $response) {
             if (file_exists($cmd) == true) {
                 $output = shell_exec($cmd);
             }else{
-                $output = 'file not found!';
+                $output = $cmd.' not found!';
             }
         }
     }
