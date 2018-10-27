@@ -19,22 +19,22 @@ $http->on("start", function($server) {
 });
 $http->on("request", function($request, $response) {
     $output = 'Hello:'.PHP_EOL;
-    $data   = $request->rawContent();
-    if (!empty($data)) {
-        $data = json_decode($data, true);
-        if (isset($data['repository']['name'])) {
-            $cmd = "/data/code-deploy/update-{$data['repository']['name']}.sh";
-            if (file_exists($cmd) == true) {
-                $output = shell_exec($cmd);
-            }else{
-                $output = $cmd.' not found!';
-            }
+
+    if (isset($request->get['test'])){
+        $output .= 'GET:'.var_export($request->get).PHP_EOL;
+        $output .= 'POST:'.var_export($request->post).PHP_EOL;
+        $output .= 'REQUEST:'.var_export($request->getData()).PHP_EOL;
+    }
+
+    if (!empty($request->get['git'])) {
+        $cmd = "/data/code-deploy/update-{$request->get['git']}.sh";
+        if (file_exists($cmd) == true) {
+            $output = shell_exec($cmd);
         }else{
-            $output .= 'GET:'.var_export($request->get).PHP_EOL;
-            $output .= 'POST:'.var_export($request->post).PHP_EOL;
-            $output .= 'REQUEST:'.var_export($request->getData()).PHP_EOL;
+            $output = $cmd.' not found!';
         }
     }
+
     $response->header("Content-Type", "text/plain");
     $response->end($output);
 });
