@@ -4,7 +4,7 @@ apt-get install -y libicu-dev libpq-dev
 apt-get install -y libevent-dev libmemcached-dev libmemcached
 apt-get install -y zip unzip git rsync
 
-/usr/local/bin/docker-php-ext-install intl mysqli pdo pdo_mysql pdo_pgsql pgsql shmop opcache sockets
+/usr/local/bin/docker-php-ext-install intl mysqli pdo_mysql pdo_pgsql pgsql shmop opcache sockets
 /usr/local/bin/docker-php-ext-configure gd \
         --with-gd \
         --with-freetype-dir=/usr/include/ \
@@ -28,3 +28,5 @@ pecl install https://pecl.php.net/get/swoole-2.2.0.tgz && echo "extension=swoole
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 apt-get autoclean && apt-get clean  && apt-get autoremove
+
+rm -rf /tmp/*
