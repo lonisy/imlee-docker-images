@@ -1,0 +1,9 @@
+apk update
+apk upgrade
+apk add rsync zip unzip wget
+
+pecl install swoole && echo "extension=swoole.so" > /etc/php7/conf.d/20_swoole.ini
+
+rm -rf /tmp/* \
+    && rm -rf /var/cache/apk/* \
+    && apk del rsync zip unzip wget

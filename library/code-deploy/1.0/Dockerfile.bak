@@ -1,0 +1,27 @@
+FROM registry.cn-hongkong.aliyuncs.com/imlee/php-cli:7.2.10-cli
+MAINTAINER ImLee <lonisy@163.com>
+
+COPY build.sh /root/build.sh
+
+RUN sh /root/build.sh
+
+# COPY php.ini /etc/php7/conf.d/setting.ini
+
+#RUN apt-get update --assume-yes
+#RUN apt-get install -y libicu-dev libpq-dev zlib1g zlib1g-dev zip rsync git
+#RUN apt-get clean && apt-get autoremove
+# COPY php.ini /usr/local/etc/php/
+# RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+# RUN pecl install swoole && echo "extension=swoole.so" > /usr/local/etc/php/conf.d/swoole.ini
+
+# RUN apt-get install -y rsync git
+# COPY id_rsa /root/.ssh/
+# COPY id_rsa.pub /root/.ssh/
+# COPY ssh_config /etc/ssh/
+
+COPY service.sh /data
+
+WORKDIR /data
+VOLUME ["/data"]
+CMD ["/data/service.sh"]
+
