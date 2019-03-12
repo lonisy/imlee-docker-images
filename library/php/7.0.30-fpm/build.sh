@@ -18,11 +18,9 @@ apt-get install -y zip unzip git rsync
 
 # 安装扩展
 pecl install https://pecl.php.net/get/redis-3.1.3.tgz && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
-pecl install https://pecl.php.net/get/imagick-3.4.3.tgz && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/imagick.ini
-pecl install https://pecl.php.net/get/swoole-2.2.0.tgz && echo "extension=swoole.so" > /usr/local/etc/php/conf.d/swoole.ini
 pecl install http://pecl.php.net/get/rdkafka-3.0.5.tgz && echo "extension=rdkafka.so" > /usr/local/etc/php/conf.d/rdkafka.ini
 pecl install http://pecl.php.net/get/SeasLog-2.0.2.tgz && echo "extension=seaslog.so" > /usr/local/etc/php/conf.d/seaslog.ini
-
+pecl install http://pecl.php.net/get/xdebug-2.5.5.tgz && echo "zend_extension=xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini
 
 # 安装 php-composer
 /usr/local/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && /usr/local/bin/php composer-setup.php --install-dir=/usr/bin --filename=composer && /usr/local/bin/php -r "unlink('composer-setup.php');"
