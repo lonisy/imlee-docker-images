@@ -3,7 +3,8 @@ apt-get update --assume-yes && apt-get install -y libmagickwand-dev libmagickcor
 apt-get install -y libicu-dev libpq-dev
 apt-get install -y libevent-dev libmemcached-dev libmemcached
 apt-get install -y zip unzip git rsync
-apt install librdkafka-dev
+
+apt install -y librdkafka-dev
 
 /usr/local/bin/docker-php-ext-install intl mysqli pdo_mysql pdo_pgsql pgsql shmop opcache sockets
 /usr/local/bin/docker-php-ext-configure gd \
@@ -18,10 +19,11 @@ apt install librdkafka-dev
 # swoole xdebug imagick redis memcached sockets opcache gd pdo_pgsql pgsql rsync
 
 # 安装扩展
+pecl channel-update pecl.php.net
 pecl install https://pecl.php.net/get/redis-3.1.3.tgz && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
 pecl install http://pecl.php.net/get/SeasLog-2.0.2.tgz && echo "extension=seaslog.so" > /usr/local/etc/php/conf.d/seaslog.ini
-#pecl install http://pecl.php.net/get/xdebug-2.5.5.tgz && echo "zend_extension=xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini
 pecl install http://pecl.php.net/get/rdkafka-3.0.4.tgz && echo "extension=rdkafka.so" > /usr/local/etc/php/conf.d/rdkafka.ini
+#pecl install http://pecl.php.net/get/xdebug-2.5.5.tgz && echo "zend_extension=xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini
 
 
 # 安装 php-composer
