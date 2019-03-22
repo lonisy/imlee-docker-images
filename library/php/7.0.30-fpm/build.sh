@@ -22,7 +22,7 @@ apt install -y librdkafka-dev
 pecl channel-update pecl.php.net
 pecl install https://pecl.php.net/get/redis-3.1.3.tgz && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
 pecl install http://pecl.php.net/get/SeasLog-2.0.2.tgz && echo "extension=seaslog.so" > /usr/local/etc/php/conf.d/seaslog.ini
-pecl install http://pecl.php.net/get/rdkafka-3.0.4.tgz && echo "extension=rdkafka.so" > /usr/local/etc/php/conf.d/rdkafka.ini
+pecl install http://pecl.php.net/get/rdkafka-3.0.5.tgz && echo "extension=rdkafka.so" > /usr/local/etc/php/conf.d/rdkafka.ini
 #pecl install http://pecl.php.net/get/xdebug-2.5.5.tgz && echo "zend_extension=xdebug.so" > /usr/local/etc/php/conf.d/xdebug.ini
 
 
