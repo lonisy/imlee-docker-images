@@ -2,7 +2,7 @@ FROM php:7.0.30-fpm
 
 MAINTAINER ImLee <lonisy@163.com>
 
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+# RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 COPY build.sh /root/build.sh
 
