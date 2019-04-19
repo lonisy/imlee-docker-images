@@ -1,8 +1,8 @@
-FROM debian:wheezy
+FROM debian:jessie
 
-MAINTAINER Li Yichao <liyichao.good@gmail.com>
+MAINTAINER ImLee <lonisy@163.com>
 
-COPY ./docker/sources.list /etc/apt/sources.list
+# COPY ./docker/sources.list /etc/apt/sources.list
 RUN	apt-get update && \
 	apt-get install -y --no-install-recommends \
 	build-essential \
