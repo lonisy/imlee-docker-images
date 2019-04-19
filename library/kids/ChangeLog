@@ -1,0 +1,18 @@
+v 1.1.0 
+  - Add docker/sources.list.
+  - Add support for `max_clients` in config file.
+  - Add support for redis command `PUNSUBSCRIBE` to unsubscribe patterns.
+  - Add Nodejs Client for kids.
+  - Add topic wildcards in PriorityStore example.
+  - Output deb in project directory.
+  - All reference to version now comes from version.m4.
+  - Change LICENSE to BSD-3-Clause in make_deb.sh.
+  - Add contributors to LICENSE.
+  - Add packaging for deb.
+  - Convert README to Unix format and minor edit.
+  - Update description for `ignore_case` in doc.
+  - Add Travis CI.
+  - Ask users to download releases instead.
+  
+v 1.0.0
+  - First public version.
