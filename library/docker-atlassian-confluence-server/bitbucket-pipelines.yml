@@ -1,0 +1,29 @@
+image: dchevell/docker-release-maker:latest
+clone:
+  depth: full
+
+pipelines:
+  custom:
+    create-release-base-6-adoptopenjdk8:
+      - step:
+          script:
+            - git remote set-url origin ${BITBUCKET_GIT_HTTP_ORIGIN}
+            - git fetch --all
+            - export BASE_BRANCH='base-6-adoptopenjdk8'
+            - export MAC_PRODUCT_KEY='confluence'
+            - export DOCKERFILE_VERSION_STRING='CONFLUENCE_VERSION'
+            - export DEFAULT_RELEASE='true'
+            - export ADDITIONAL_TAG_SUFFIXES='ubuntu,ubuntu-18.04-adoptopenjdk8'
+            - python /usr/src/app/run.py --create
+  branches:
+    base-6-adoptopenjdk8:
+      - step:
+          script:
+            - git remote set-url origin ${BITBUCKET_GIT_HTTP_ORIGIN}
+            - git fetch --all
+            - export BASE_BRANCH='base-6-adoptopenjdk8'
+            - export MAC_PRODUCT_KEY='confluence'
+            - export DOCKERFILE_VERSION_STRING='CONFLUENCE_VERSION'
+            - export DEFAULT_RELEASE='true'
+            - export ADDITIONAL_TAG_SUFFIXES='ubuntu,ubuntu-18.04-adoptopenjdk8'
+            - python /usr/src/app/run.py --update
