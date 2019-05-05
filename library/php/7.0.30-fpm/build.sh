@@ -2,7 +2,8 @@
 apt-get update --assume-yes && apt-get install -y libmagickwand-dev libmagickcore-dev
 apt-get install -y libicu-dev libpq-dev
 apt-get install -y libevent-dev libmemcached-dev libmemcached
-apt-get install -y zip unzip git rsync
+apt-get install -y zip unzip git rsync openssl openssl-devel
+apt-get install -y autoconf pkg-config libssl-dev
 
 /usr/local/bin/docker-php-ext-install intl mysqli pdo_mysql pdo_pgsql pgsql shmop opcache sockets
 /usr/local/bin/docker-php-ext-configure gd \
