@@ -30,5 +30,5 @@ pecl install https://pecl.php.net/get/mongodb-1.5.3.tgz && echo "extension=mongo
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 apt-get autoclean && apt-get clean  && apt-get autoremove
-
+cp -r docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
 rm -rf /tmp/*
