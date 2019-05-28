@@ -3,6 +3,7 @@ skip-host-cache
 skip-name-resolve
 
 innodb_log_file_size=256M
+max_allowed_packet=128M
 
 ;innodb_buffer_pool_size=128M
 ;query_cache_size=16M
