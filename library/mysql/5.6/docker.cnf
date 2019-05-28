@@ -2,6 +2,8 @@
 skip-host-cache
 skip-name-resolve
 
+innodb_log_file_size=256M
+
 ;innodb_buffer_pool_size=128M
 ;query_cache_size=16M
 ;tmp_table_size=32M
