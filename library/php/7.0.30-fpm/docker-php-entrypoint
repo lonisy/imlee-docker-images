@@ -5,6 +5,10 @@ set -e
 if [ "${1#-}" != "$1" ]; then
 	set -- php-fpm "$@"
 fi
-$RUN_COMMAND
-# /data/html/itv.1234live.com/easyim/EasyimServer.sh
+
+if [ -n "$RUN_COMMAND" ]; then
+    $RUN_COMMAND
+    # /data/html/itv.1234live.com/easyim/EasyimServer.sh
+fi
+
 exec "$@"
