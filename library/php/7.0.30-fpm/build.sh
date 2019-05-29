@@ -32,3 +32,7 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 apt-get autoclean && apt-get clean  && apt-get autoremove
 
 rm -rf /tmp/*
+
+echo "slowlog=/data/logs/php-slow.log" >> /usr/local/etc/php-fpm.d/zz-docker.conf
+echo "request_slowlog_timeout=1s" >> /usr/local/etc/php-fpm.d/zz-docker.conf
+
