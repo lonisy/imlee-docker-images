@@ -4,7 +4,19 @@ apt-get install -y libicu-dev libpq-dev
 apt-get install -y libevent-dev libmemcached-dev libmemcached
 apt-get install -y zip unzip git rsync openssl openssl-devel
 apt-get install -y autoconf pkg-config libssl-dev
-apt install -y librdkafka-dev
+
+# apt install -y librdkafka-dev
+curl -fsSL https://github.com/edenhill/librdkafka/archive/v1.0.0.tar.gz -o librdkafka.tar.gz \
+    && mkdir -p librdkafka \
+    && tar -zxf librdkafka.tar.gz -C librdkafka --strip-components=1 \
+    && rm librdkafka.tar.gz \
+    && ( \
+         cd librdkafka \
+         && ./configure \
+         && make -j$(nproc) \
+         && make install \
+     ) \
+    && rm -r librdkafka
 
 /usr/local/bin/docker-php-ext-install intl mysqli pdo_mysql pdo_pgsql pgsql shmop opcache sockets calendar zip pcntl
 /usr/local/bin/docker-php-ext-configure gd \
