@@ -4,8 +4,12 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 apt-get update --assume-yes && apt-get install -y libmagickwand-dev libmagickcore-dev
 apt-get install -y libicu-dev libpq-dev
 apt-get install -y libevent-dev libmemcached-dev libmemcached
-apt-get install -y zip unzip git rsync openssl openssl-devel
+apt-get install -y zip unzip git rsync openssl openssl-devel wget inetutils-ping
 apt-get install -y autoconf pkg-config libssl-dev
+echo 'deb http://s3-eu-west-1.amazonaws.com/tideways/packages debian main' | tee /etc/apt/sources.list.d/tideways.list
+wget -qO - https://s3-eu-west-1.amazonaws.com/tideways/packages/EEB5E8F4.gpg | apt-key add -
+apt-get update
+apt-get install -y tideways-php tideways-daemon
 apt-get autoclean && apt-get clean && apt-get autoremove
 
 # apt install -y librdkafka-dev
@@ -38,6 +42,8 @@ pecl install https://pecl.php.net/get/mongodb-1.5.3.tgz
 pecl install yaf
 pecl clear-cache
 /usr/local/bin/docker-php-ext-enable redis seaslog rdkafka imagick swoole xdebug mongodb yaf
+
+
 
 # 安装 php-composer
 /usr/local/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && /usr/local/bin/php composer-setup.php --install-dir=/usr/bin --filename=composer && /usr/local/bin/php -r "unlink('composer-setup.php');"
