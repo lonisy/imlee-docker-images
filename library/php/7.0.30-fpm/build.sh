@@ -6,10 +6,6 @@ apt-get install -y libicu-dev libpq-dev
 apt-get install -y libevent-dev libmemcached-dev libmemcached
 apt-get install -y zip unzip git rsync openssl openssl-devel wget inetutils-ping
 apt-get install -y autoconf pkg-config libssl-dev
-echo 'deb http://s3-eu-west-1.amazonaws.com/tideways/packages debian main' | tee /etc/apt/sources.list.d/tideways.list
-wget -qO - https://s3-eu-west-1.amazonaws.com/tideways/packages/EEB5E8F4.gpg | apt-key add -
-apt-get update
-apt-get install -y tideways-php tideways-daemon
 apt-get autoclean && apt-get clean && apt-get autoremove
 
 # apt install -y librdkafka-dev
