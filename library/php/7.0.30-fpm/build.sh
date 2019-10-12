@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
 apt-get update --assume-yes && apt-get install -y libmagickwand-dev libmagickcore-dev
 apt-get install -y libicu-dev libpq-dev
 apt-get install -y libevent-dev libmemcached-dev libmemcached
-apt-get install -y zip unzip git rsync openssl openssl-devel wget inetutils-ping
+apt-get install -y zip unzip git rsync openssl openssl-devel wget inetutils-ping iputils-ping
 apt-get install -y autoconf pkg-config libssl-dev
-apt-get autoclean && apt-get clean && apt-get autoremove
 
 # apt install -y librdkafka-dev
 curl -fsSL https://github.com/edenhill/librdkafka/archive/v1.0.0.tar.gz -o librdkafka.tar.gz \
@@ -43,6 +40,10 @@ pecl clear-cache
 
 # 安装 php-composer
 /usr/local/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && /usr/local/bin/php composer-setup.php --install-dir=/usr/bin --filename=composer && /usr/local/bin/php -r "unlink('composer-setup.php');"
+
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+apt-get autoclean && apt-get clean && apt-get autoremove
 
 rm -rf /tmp/*
 
