@@ -11,6 +11,8 @@ RUN sh /root/build.sh
 # RUN sed -i -e "s/pdo_mysql.default_socket=/pdo_mysql.default_socket=\/var\/run\/mysqld\/mysqld.sock/" /usr/local/etc/php/php.ini \
 #   && sed -i "s/mysqli.default_socket =/mysqli.default_socket=\/var\/run\/mysqld\/mysqld.sock/" /usr/local/etc/php/php.ini \
 #   && sed -i "s/mysql.default_socket =/mysqli.default_socket=\/var\/run\/mysqld\/mysqld.sock/" /usr/local/etc/php/php.ini
+
+
 COPY docker-php-entrypoint /usr/local/bin/docker-php-entrypoint
 WORKDIR /data
 VOLUME ["/data"]
