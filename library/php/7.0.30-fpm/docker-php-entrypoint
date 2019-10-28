@@ -8,7 +8,7 @@ fi
 
 if [ -n "$RUN_COMMAND" ]; then
     $RUN_COMMAND
-    # myServer.sh23
+    # myServer.sh
 fi
 
 exec "$@"
