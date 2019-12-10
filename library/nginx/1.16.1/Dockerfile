@@ -26,8 +26,8 @@ RUN set -x \
         nginx=${NGINX_VERSION}-r${PKG_RELEASE} \
         nginx-module-xslt=${NGINX_VERSION}-r${PKG_RELEASE} \
         nginx-module-geoip=${NGINX_VERSION}-r${PKG_RELEASE} \
-        nginx-module-lua=${NGINX_VERSION}-r${PKG_RELEASE} \
-        nginx-module-redis2=${NGINX_VERSION}-r${PKG_RELEASE} \
+#        nginx-module-lua=${NGINX_VERSION}-r${PKG_RELEASE} \
+#        nginx-module-redis2=${NGINX_VERSION}-r${PKG_RELEASE} \
         nginx-module-image-filter=${NGINX_VERSION}-r${PKG_RELEASE} \
         nginx-module-njs=${NGINX_VERSION}.${NJS_VERSION}-r${PKG_RELEASE} \
     " \
