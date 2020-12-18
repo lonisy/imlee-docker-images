@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #apk update && apk upgrade
 #apk add --no-cache php7-pear php7-dev gcc musl-dev make bash re2c build-base
-apt-get update
-apt-get install git
+apt-get update && apt-get -y install git
+
 
 curl -fsSL https://github.com/edenhill/librdkafka/archive/v1.5.0.tar.gz -o librdkafka.tar.gz \
     && mkdir -p librdkafka \
