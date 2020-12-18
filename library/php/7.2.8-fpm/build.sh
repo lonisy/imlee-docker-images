@@ -32,6 +32,7 @@ pecl clear-cache
 #/usr/local/bin/docker-php-ext-enable redis seaslog rdkafka imagick swoole xdebug mongodb yaf
 /usr/local/bin/docker-php-ext-enable redis rdkafka seaslog
 
+cd /tmp
 composer require aerospike/aerospike-client-php ~7.2
 find vendor/aerospike/aerospike-client-php/ -name "*.sh" -exec chmod +x {} \;
 cd vendor/aerospike/aerospike-client-php/ && composer run-script post-install-cmd
