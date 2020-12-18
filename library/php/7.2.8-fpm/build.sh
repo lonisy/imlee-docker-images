@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-apk update && apk upgrade
-apk add --no-cache php7-pear php7-dev gcc musl-dev make bash re2c build-base
+#apk update && apk upgrade
+#apk add --no-cache php7-pear php7-dev gcc musl-dev make bash re2c build-base
+apt-get update
+apt-get install git
 
 curl -fsSL https://github.com/edenhill/librdkafka/archive/v1.5.0.tar.gz -o librdkafka.tar.gz \
     && mkdir -p librdkafka \
@@ -28,9 +30,14 @@ pecl install http://pecl.php.net/get/rdkafka-4.0.0.tgz
 #pecl install yaf
 pecl clear-cache
 #/usr/local/bin/docker-php-ext-enable redis seaslog rdkafka imagick swoole xdebug mongodb yaf
-/usr/local/bin/docker-php-ext-enable redis
-/usr/local/bin/docker-php-ext-enable seaslog
-/usr/local/bin/docker-php-ext-enable rdkafka
+/usr/local/bin/docker-php-ext-enable redis rdkafka seaslog
+
+composer require aerospike/aerospike-client-php ~7.2
+find vendor/aerospike/aerospike-client-php/ -name "*.sh" -exec chmod +x {} \;
+cd vendor/aerospike/aerospike-client-php/ && composer run-script post-install-cmd
+cd src/ && make install
+echo "extension=aerospike.so" > /usr/local/etc/php/conf.d/aerospike.ini
+echo "aerospike.udf.lua_user_path=/usr/local/aerospike/usr-lua" >> /usr/local/etc/php/conf.d/aerospike.ini
 
 
 # 安装 php-composer
@@ -38,9 +45,9 @@ pecl clear-cache
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-#apt-get autoclean && apt-get clean  && apt-get autoremove
+apt-get autoclean && apt-get clean  && apt-get autoremove
 
-#rm -rf /tmp/*
+rm -rf /tmp/*
 
 #apk add softName
 #apk del softName
