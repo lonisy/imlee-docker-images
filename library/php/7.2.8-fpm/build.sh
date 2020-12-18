@@ -32,6 +32,11 @@ pecl clear-cache
 #/usr/local/bin/docker-php-ext-enable redis seaslog rdkafka imagick swoole xdebug mongodb yaf
 /usr/local/bin/docker-php-ext-enable redis rdkafka seaslog
 
+
+# 安装 php-composer
+/usr/local/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && /usr/local/bin/php composer-setup.php --install-dir=/usr/bin --filename=composer && /usr/local/bin/php -r "unlink('composer-setup.php');"
+
+
 cd /tmp
 composer require aerospike/aerospike-client-php ~7.2
 find vendor/aerospike/aerospike-client-php/ -name "*.sh" -exec chmod +x {} \;
@@ -40,9 +45,6 @@ cd src/ && make install
 echo "extension=aerospike.so" > /usr/local/etc/php/conf.d/aerospike.ini
 echo "aerospike.udf.lua_user_path=/usr/local/aerospike/usr-lua" >> /usr/local/etc/php/conf.d/aerospike.ini
 
-
-# 安装 php-composer
-/usr/local/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && /usr/local/bin/php composer-setup.php --install-dir=/usr/bin --filename=composer && /usr/local/bin/php -r "unlink('composer-setup.php');"
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
