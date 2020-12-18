@@ -15,6 +15,7 @@ apt-get install -y zip unzip git rsync
     && /usr/local/bin/docker-php-ext-install calendar zip pcntl
 
 # 安装扩展
+pecl channel-update pecl.php.net
 pecl install https://pecl.php.net/get/redis-4.0.0.tgz
 pecl install http://pecl.php.net/get/SeasLog-2.0.2.tgz
 pecl install http://pecl.php.net/get/rdkafka-4.0.0.tgz

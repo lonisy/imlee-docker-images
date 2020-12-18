@@ -5,3 +5,4 @@ COPY build.sh /root/build.sh
 RUN sh /root/build.sh
 WORKDIR /data
 VOLUME ["/data"]
+
