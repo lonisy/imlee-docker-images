@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+apk update && apk upgrade
+apk add --no-cache php7-pear php7-dev gcc musl-dev make
 
 # 安装扩展
 pecl channel-update pecl.php.net
@@ -19,5 +21,7 @@ pecl clear-cache
 /usr/local/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && /usr/local/bin/php composer-setup.php --install-dir=/usr/bin --filename=composer && /usr/local/bin/php -r "unlink('composer-setup.php');"
 
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+#apt-get autoclean && apt-get clean  && apt-get autoremove
 
 rm -rf /tmp/*
