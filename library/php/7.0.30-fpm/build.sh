@@ -32,10 +32,10 @@ pecl install https://pecl.php.net/get/imagick-3.4.3.tgz
 pecl install https://pecl.php.net/get/swoole-2.2.0.tgz
 pecl install https://pecl.php.net/get/xdebug-2.5.5.tgz
 pecl install https://pecl.php.net/get/mongodb-1.5.3.tgz
+pecl install ds
 pecl install yaf
 pecl clear-cache
-/usr/local/bin/docker-php-ext-enable redis seaslog rdkafka imagick swoole xdebug mongodb yaf
-
+/usr/local/bin/docker-php-ext-enable redis seaslog rdkafka imagick swoole xdebug mongodb yaf ds
 
 
 # 安装 php-composer
